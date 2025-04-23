@@ -16,11 +16,10 @@ public class Ex01 {
 	
 	
 	// 풀이
-	// 시간 ms ~ ms
+	// 시간 0.08ms ~ 4.15ms
 	public int[] solution(String myString) {
 		
-		
-		
+		// -1 넣어서 빈 문자열도 포함
 		String[] arr = myString.split("x", -1);
 		int [] num = new int[arr.length];
 
