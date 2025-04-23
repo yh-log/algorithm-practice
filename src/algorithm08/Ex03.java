@@ -13,7 +13,7 @@ public class Ex03 {
 	 */
 	
 	// 풀이
-	// 시간 ms ~ ms
+	// 시간 0.03ms ~ 0.11ms
 	public int solution(String num_str) {
 		
 		int sum = 0;
