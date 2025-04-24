@@ -15,7 +15,7 @@ public class Ex01 {
 	 */
 	
 	// 풀이
-	// 시간 ms ~ ms
+	// 시간 0.02ms ~ 1.12ms
 	public long solution(int price, int money, int count) {
 		
 		long answer = 0;
