@@ -13,7 +13,7 @@ public class Ex04 {
 	
 	
 	// 풀이
-	// 시간 ms ~ ms
+	// 시간 0.13ms ~ 0.49ms
 	public String solution(int n) {
 		
 		StringBuilder sb = new StringBuilder();
