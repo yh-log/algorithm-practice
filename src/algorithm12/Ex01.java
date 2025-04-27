@@ -26,7 +26,6 @@ public class Ex01 {
 		
 		for(int i = 0; i < arr.length; i++) {
 			
-			System.out.println(arr[i] +  " 공백 나와?");
 			
 			if(arr[i].length() > 0) {
 				sb.append(Character.toUpperCase(arr[i].charAt(0)))
@@ -61,10 +60,26 @@ public class Ex01 {
 	}
 	
 	
+	public String solution2(String s) {
+		
+		StringBuilder sb = new StringBuilder();
+		String[] arr = s.toLowerCase().split("");
+		boolean flag = true;
+		
+		
+		for(String str : arr) {
+			sb.append(flag ? str.toUpperCase() : str);
+			flag = sb.equals(" ") ? true : false;
+		}
+		
+		return sb.toString();
+	}
+	
+	
 	public static void main(String[] agrs) {
 		Ex01 ex01 = new Ex01();
-		System.out.println(ex01.solution("3pEoplE          unFollowed   me     "));
-		System.out.println(ex01.solution("f 1d 3d sdfse a        "));
+		System.out.println(ex01.soultion1("3pEoplE          unFollowed   me     "));
+		System.out.println(ex01.soultion1("f 1d 3d sdfse a        "));
 	}
 	
 }
