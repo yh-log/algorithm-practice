@@ -23,7 +23,9 @@ public class Ex03 {
 			return String.valueOf(s.charAt(n -1)) + String.valueOf(s.charAt(n));
 		}
 		
-		return String.valueOf(s.charAt(n));
+//		return String.valueOf(s.charAt(n));
+		
+		return (s.length() % 2 == 0) ? String.valueOf(s.charAt(n -1)) + String.valueOf(s.charAt(n)) : String.valueOf(s.charAt(n));
 	}
 	
 	
