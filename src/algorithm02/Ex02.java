@@ -1,40 +1,71 @@
 package algorithm02;
 
-import java.util.stream.Collectors;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
- * 링크 https://school.programmers.co.kr/learn/courses/30/lessons/120849
+ * 링크 https://school.programmers.co.kr/learn/courses/30/lessons/120905
  */
 
 public class Ex02 {
 	
 	/**
 	 * 문제 설명
-	 * 1. a, e, i, o, u (모음)이 매개변수로 주어질 경우
-	 * 2. 모음을 제거한 문자열을 return
+	 * 1. 정수 n와 정수 배열 numlist가 주어질 때
+	 * 2. n의 배수만 배열에 담아 return
 	 */
 	
-	// 풀이 1. replaceAll() 사용
-	// 시간 0.09ms ~ 0.13ms
-    public String solution(String my_string) {
+	// 풀이 1. 배열의 크기를 미리 계산해주는 방법
+	// 시간 0.01ms ~ 0.02ms
+    public int[] solution(int n, int[] numlist) {
+    	
+        int count = 0;
         
-    	return my_string.replaceAll("[aeiou]", "");
+        for(int num : numlist) {
+        	if(num % n == 0) {
+        		count ++;
+        	}
+        }
+        
+        int[] arr = new int[count];
+        int index = 0;
+        
+        for(int num : numlist) {
+        	if(num % n == 0) {
+        		arr[index++] = num;
+        	}
+        }
+        
+        return arr;
     }
     
-    // 풀이 2. stream 사용
-    // 시간 1.92ms ~ 14.88ms
-    public String solution2(String my_string) {
+    // 풀이 2. list로 받아서 배열로 변환해주는 방법
+    // 시간 1.99ms ~ 2.73ms
+    public int[] solution1(int n, int[] numlist) {
         
-    	return my_string.chars()
-    					.filter(x -> "aeiou".indexOf(x) == -1)
-    					.mapToObj(x -> String.valueOf((char)x))
-    					.collect(Collectors.joining());
+    	List<Integer> list = new ArrayList<>();
+    	
+    	for(int num : numlist) {
+    		if(num % n == 0) {
+    			list.add(num);
+    		}
+    	}
+    	
+    	
+        return list.stream().mapToInt(i -> i).toArray();
     }
+    
+    
     
     public static void main(String[] args) {
     	Ex02 ex02 = new Ex02();
     	
-    	System.out.println(ex02.solution("bus"));
+    	int n = 3;
+    	int[] numlist = {4, 5, 6, 7, 8, 9, 10, 11, 12};
+    	
+    	System.out.println(Arrays.toString(ex02.solution(n, numlist)));
+    	
     }
 
 }

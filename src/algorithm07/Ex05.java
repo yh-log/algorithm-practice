@@ -1,70 +1,83 @@
 package algorithm07;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 /**
- * 링크 https://school.programmers.co.kr/learn/courses/30/lessons/120850
+ * 링크 https://school.programmers.co.kr/learn/courses/30/lessons/12932
  */
 
 public class Ex05 {
 	
 	/**
 	 * 문제 설명
-	 * 1. 문자열에 숫자만 골라
-	 * 2. 오름차순으로 정렬한 배열을 return
+	 * 1. 자연수 n을 뒤집어 배열로 return
 	 */
 	
-	// 풀이 1. Arrays.copyOf 사용
-	// 시간 0.61ms ~ 1.67ms
-	public int[] solution(String my_string) {
+	
+	/**
+	 * 방법 고민
+	 * 1. n을 String으로 만들어 준다.
+	 * 2. 숫자로 접근 
+	 *    → n을 % 10으로 해 남은 나머지를 배열에 넣어주고
+	 * 	  → 종료 후 n / 10을 해서 1의 자리 날려주기
+	 */
+	
+	// 풀이 1. 숫자로 접근 ▶ 메모리 초과!!
+	// 시간 ms ~ ms
+	public int[] solution(long n) {
 		
-		int[] arr = new int[my_string.length()];
+		int[] arr = new int[(int)n];
 		int j = 0;
 		
-		for(int i = 0; i < my_string.length(); i++) {
-			
-			char ch = my_string.charAt(i);
-			
-			if(Character.isDigit(ch)) {
-				System.out.println(j);
-				arr[j] = Integer.parseInt(String.valueOf(ch));
-				j++;
-				
-			}
+		while(n > 0) {
+			arr[j] = (int) n % 10;
+			n /= 10;
+			j++;
 		}
 		
-		// copyOf 는 새로운 배열을 주기 때문에 그걸 받아주는 것이 필수!!
-		arr = Arrays.copyOf(arr, j);
-		Arrays.sort(arr);
+		
+		return Arrays.copyOf(arr, j);
+	}
+	
+	
+	// 풀이 2. String으로 변환
+	// 시간 0.04ms ~ 0.05ms
+	public int[] solution1(long n) {
+		
+		String str = String.valueOf(n);
+		int[] arr = new int[str.length()];
+		
+		
+		for(int i = str.length() -1, j = 0; i >= 0; i--, j++) {
+			arr[j] = Integer.parseInt(String.valueOf(str.charAt(i)));
+		}
 		
 		return arr;
 	}
 	
-	// 풀이 2. list 및 stream 사용
-	// 시간 2.45ms ~ 5.81ms
-	public int[] solution1(String my_string) {
+	// 풀이 2. StirngBuilder에 reverse() 사용
+	// 시간 0.08ms ~ 0.11ms
+	public int[] solution2(long n) {
 		
-		List<Integer> list = new ArrayList<>();		
+		StringBuilder sb = new StringBuilder();
+		sb.append(n).reverse();
 		
-		for(int i = 0; i < my_string.length(); i++) {
-			if(Character.isDigit(my_string.charAt(i))) {
-				list.add(Integer.parseInt(String.valueOf(my_string.charAt(i))));
-			}
+		int[] arr = new int[sb.length()];
+		
+		for(int i = 0; i < sb.length(); i++) {
+			arr[i] = Integer.parseInt(String.valueOf(sb.charAt(i)));
 		}
 		
-		// Integer::parseInt : String 을 숫자로 바꿀 때 사용
-		// i -> i : 숫자 그대로를 바꿀 때 (Integer 를 int로 언박싱)
-		return list.stream().sorted().mapToInt(i -> i).toArray();
+		return arr;
 	}
+	
+	
 	
 	
 	
 	public static void main(String[] args) {
 		Ex05 ex05 = new Ex05();
-		
-		System.out.println(Arrays.toString(ex05.solution("ass")));
+		System.out.println(Arrays.toString(ex05.solution(12345)));
 	}
 
 }

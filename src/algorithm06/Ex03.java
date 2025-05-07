@@ -1,44 +1,45 @@
 package algorithm06;
 
+import java.util.Arrays;
 
 /**
- * 링크 https://school.programmers.co.kr/learn/courses/30/lessons/181935
+ * 링크 https://school.programmers.co.kr/learn/courses/30/lessons/12919
  */
 
 public class Ex03 {
-	
+
 	/**
 	 * 문제 설명
-	 * 1. 양의 정수 n이 주어질 때 
-	 * 2. n이 홀수일 경우 n 이하의 홀수인 정수의 합을 return
-	 * 3. n이 짝수일 경우 n 이하의 짝수의 제곱의 합을 return
+	 * 1. String 배열 중 "Kim" 의 위치를 찾아
+	 * 2. "김서방은 x에 있다" 는 String을 return
 	 */
 	
-	// 풀이 1. if 문 사용
-	// 시간 0.01ms ~ 0.03ms
-	public int solution(int n) {
+	
+	// 풀이
+	// 시간 5.24ms ~ 8.13ms
+	public String solution(String[] seoul) {
 		
-		int answer = 0;
+		int x = 0;
 		
-		if(n % 2 != 0) {
-			for(int i = 1; i <= n; i += 2) {
-				answer += i;
-			}
-		}else {
-			for(int i = 2; i <= n; i += 2) {
-				answer += i * i;
+		for(int i = 0; i < seoul.length; i++) {
+			if(seoul[i].contains("Kim")) {
+				x = i;
+				break;
 			}
 		}
 		
-		
-		return answer;
+		return 	"김서방은 " + x + "에 있다";
 	}
 	
 	
-	public static void main(String[] args) {
-		Ex03 ex04 = new Ex03();
+	// 풀이 2. indexOf() 사용
+	// 시간 5.93ms ~ 7.82ms
+	
+	public String solution1(String[] seoul) {
 		
-		System.out.println(ex04.solution(10));
+		int x = Arrays.asList(seoul).indexOf("Kim");
+		
+		return 	"김서방은 " + x + "에 있다";
 	}
-
+	
 }

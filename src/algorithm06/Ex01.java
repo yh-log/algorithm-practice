@@ -1,41 +1,42 @@
 package algorithm06;
 
 /**
- * 링크 https://school.programmers.co.kr/learn/courses/30/lessons/181937
+ * 링크 https://school.programmers.co.kr/learn/courses/30/lessons/82612
  */
 
 public class Ex01 {
 	
 	/**
 	 * 문제 설명
-	 * 1. num과 n 이 주어질 때
-	 * 2. num이 n의 배수이면 1 아니면 0을 return
+	 * 1. 놀이기구 이용료는 price
+	 * 2. 놀이기구를 n 번째 이용할 경우 price * n
+	 * 3. 놀이기구를 count번 타게 될 경우 가지고 있는 금액에서 얼마가 모자라는지
+	 * 4. 금액이 부족하지 않을 경우 0을 return
 	 */
 	
-	
-	// 풀이 1. if 문
-	// 시간 0.01ms ~ 0.02ms  
-	public int solution(int num, int n) {
+	// 풀이
+	// 시간 0.02ms ~ 1.12ms
+	public long solution(int price, int money, int count) {
 		
-		if(num % n == 0) {
-			return 1;
+		long answer = 0;
+		
+		for(int i = 1; i <= count; i++) {
+			answer += i * price;
 		}
-		return 0;
+		
+		if(answer < money) {
+			return 0;
+		}else {
+			return answer - money;
+		}
+		
 	}
 	
-	// 풀이 2. 삼항 연산자
-	// 시간 0.01ms ~ 0.02ms  
-	public int solution1(int num, int n) {
-		
-		return num % n == 0? 1 : 0;
-	}
 	
 	
 	public static void main(String[] args) {
-		Ex01 ex02 = new Ex01();
-		
-		System.out.println(ex02.solution(98, 1));
-		System.out.println(ex02.solution(34, 3));
+		Ex01 ex01 = new Ex01();
+		System.out.println(ex01.solution(3, 20, 4));
 	}
 
 }

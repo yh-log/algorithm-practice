@@ -1,58 +1,54 @@
 package algorithm06;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
-
 
 /**
- * 링크 https://school.programmers.co.kr/learn/courses/30/lessons/181888
+ * 링크 https://school.programmers.co.kr/learn/courses/30/lessons/86051
  */
 
 public class Ex02 {
 	
 	/**
 	 * 문제 설명
-	 * 1. num_list와 정수 n이 주어질 때
-	 * 2. list의 첫 번째 ~ 마지막 원소까지 n개 간격으로 저장되어 있는
-	 * 3. 원소를 담은 리스트를 return
+	 * 1. 0~9 까지 숫자 중 배열에 없는 숫자를 더해서 return
+	 * 2. 모든 원소는 서로 다르다
 	 */
 	
-	// 풀이 1. for문 사용
-	// 시간 0.02ms ~ 0.03ms
-	public int[] solution(int[] num_list, int n) {
-		
-		int[] answer = new int[num_list.length];
-		int j = 0;
-		
-		for(int i = 0; i < num_list.length; i += n) {
-			answer[j] = num_list[i];
-			j++;
-		}
-		return Arrays.copyOf(answer, j);
-	}
 	
-	
-	// 풀이 2. List 로 만들어서 풀이
-	// 시간 1.83ms ~ 3.34ms
-	public int[] solution1(int[] num_list, int n) {
+	// 풀이
+	// 시간 0.32ms ~ 0.48ms
+	public int solution(int[] numbers) {
 		
+		Arrays.sort(numbers);
+		int sum = 0;
 		
-		List<Integer> list = new ArrayList<>();
-		
-		for(int i = 0; i < num_list.length; i += n) {
-			list.add(num_list[i]);
+		for(int i = 0; i <= 9; i++) {
+			boolean isNum = false;
+			for(int j = 0; j < numbers.length; j++) {
+				System.out.println("동일 수  " + i  + " = " + numbers[j]);
+				if(i == numbers[j]) {
+					isNum = true;
+					break;
+				}
+			}
+			
+			if(!isNum) {
+				sum += i;
+			}
 		}
 		
-		return list.stream().mapToInt(i -> i).toArray();
+		
+		return sum;
 	}
 	
 	
 	public static void main(String[] args) {
-		Ex02 ex03 = new Ex02();
+		Ex02 ex02 = new Ex02();
 		
-		int[] num_list = {4, 2, 6, 1, 7, 6};
-		System.out.println(Arrays.toString(ex03.solution1(num_list, 2)));
+		int arr[] = {1,2,3,4,6,7,8,0};
+		
+		System.out.println(ex02.solution(arr));
+		
 	}
 
 }

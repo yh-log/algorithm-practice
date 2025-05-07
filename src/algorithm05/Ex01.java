@@ -1,48 +1,32 @@
 package algorithm05;
 
-import java.util.Arrays;
-
 /**
- * 링크 https://school.programmers.co.kr/learn/courses/30/lessons/120811
+ * 링크 https://school.programmers.co.kr/learn/courses/30/lessons/120845
  */
 
 public class Ex01 {
-	
+
 	/**
 	 * 문제 설명
-	 * 1. 주어진 정수 배열 array가 있을 때
-	 * 2. 중앙값을 찾아 return
-	 *  ※ 배열의 길이는 홀수이다
+	 * 1. 정육면체 모양의 주사위를 가장 많이 채우고 싶음
+	 * 2. 상자의 가로, 세로, 높이가 저장된 배열과
+	 * 3. 주사위 모서리 길이 n이 있을 때
+	 * 4. 상자에 들어갈 수 있는 주사위의 최대 개수를 return
 	 */
 	
-	// 풀이 1. Arrays.sort() 로 배열 정렬 후 중앙 인덱스 반환
-	// 시간 0.33ms ~0.52 ms
-	public int solution(int[] array) {
+	// 풀이
+	// 시간 0.01ms ~ 0.02ms
+	public int solution(int[] box, int n) {
 		
-		Arrays.sort(array);
-		
-		return array[array.length / 2];
+		return (box[0] / n) * (box[1] / n) * (box[2] / n);
 	}
 	
-	
-	// 풀이 2. 만약 홀수개가 아닌 짝수개로도 배열을 받는 경우의 풀이
-	public int solution1(int[] array) {
-		
-		Arrays.sort(array);
-		
-		if(array.length % 2 == 0) {
-			return (array[array.length / 2] + array[array.length / 2 - 1] / 2);
-			
-		}else {
-			return array[array.length / 2];
-		}
-	}
 	
 	
 	public static void main(String[] args) {
 		Ex01 ex01 = new Ex01();
-		int[] arr = {1, 2, 7, 10, 11};
-		System.out.println(ex01.solution1(arr));
+		
+		int[] box = {10, 8, 6};
+		System.out.println(ex01.solution(box, 3));
 	}
-
 }

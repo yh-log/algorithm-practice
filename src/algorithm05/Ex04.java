@@ -1,56 +1,34 @@
 package algorithm05;
 
 /**
- * 링크 https://school.programmers.co.kr/learn/courses/30/lessons/120837
+ * 링크 https://school.programmers.co.kr/learn/courses/30/lessons/12918
  */
 
 public class Ex04 {
 	
 	/**
-	 * 문제 설명 (그리디 알고리즘 문제)
-	 * 1. 장군 개미는 5, 병졍 개미는 3, 일개미는 1
-	 * 2. 사냥감의 hp에 따라 최소한의 병령을 구성할 경우
-	 * 3. 개미의 수를 return
+	 * 문제 설명
+	 * 1. 문자열의 길이가 4 또는 6이고 숫자로만 이루어져 있으면 true
+	 * 2. 문자열의 길이가 4 또는 6이 아니고 문자가 있으면 false
 	 */
 	
-	// 풀이 1. 나눈 값을 변수에 저장하고, 나머지 값을 hp에 저장하는 방법
-	// 시간 0.01ms ~ 0.02ms
-	public int solution(int hp) {
-			
-		int count = hp / 5;
-		hp %= 5;
+	// 풀이
+	// 시간 0.02ms ~ 0.03ms
+	public boolean solution(String s) {
 		
-		count += hp / 3;
-		hp %= 3;
+		boolean result = false;
 		
-		count += hp;
-		
-		return count;
-	}
-	
-	// 풀이 2. 배열과 반복문으로 풀이
-	// 시간 0.01ms ~ 0.02ms
-	public int solution1(int hp) {
-		
-		int[] power = {5,3,1};
-		int count = 0;
-		
-		
-		for(int num : power) {
-			count += hp / num;
-			hp %= num;
+		if(4 == s.length() || 6 == s.length()) {
+			result = true;
+			for(int i = 0; i < s.length(); i++) {
+				char ch = s.charAt(i);
+				if(!Character.isDigit(ch)) {
+					result = false;
+				}
+			}
 		}
 		
-		
-		return count;
-	}
-	
-	
-	
-	public static void main(String[] args) {
-		Ex04 ex04 = new Ex04();
-		System.out.println(ex04.solution(999));
-		
+		return result;
 	}
 
 }

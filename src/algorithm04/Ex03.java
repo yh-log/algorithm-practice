@@ -1,38 +1,33 @@
 package algorithm04;
 
 /**
- * 링크 https://school.programmers.co.kr/learn/courses/30/lessons/120585
+ * 링크 https://school.programmers.co.kr/learn/courses/30/lessons/120899
  */
+
 public class Ex03 {
 	
 	/**
 	 * 문제 설명
-	 * 1. 정수 배열 arr이 주어질 대
-	 * 2. 정수 n 보다 큰 수의 개수를 return
+	 * 1. 정수 배열의 가장 큰 수와 그 수의 index return
 	 */
 	
-	// 풀이 
-	// 시간 0.01ms ~ 0.02ms
-	public int solution(int[] arr, int n) {
+	// 풀이
+	// 시간 0.01ms
+	public int[] solution(int[] array) {
+
+		int max = array[0];
 		
-		int count = 0;
+		int[] arr = {array[0], 0};
 		
-		for(int hei : arr) {
-			if(hei > n) {
-				count++;
+		for(int i = 1; i < array.length; i++) {
+			if(array[i] > max) {
+				max = array[i];
+				arr[0] = max;
+				arr[1] = i;
 			}
 		}
 		
-		return count;
-	}
-	
-	public static void main(String[] args) {
-		Ex03 ex03 = new Ex03();
-		
-		int[] arr = {149, 180, 192, 170};
-		
-		System.out.println(ex03.solution(arr, 168));
-		
+		return arr;
 	}
 
 }

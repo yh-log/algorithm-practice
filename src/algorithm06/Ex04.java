@@ -1,52 +1,56 @@
 package algorithm06;
 
+import java.util.Arrays;
+
 /**
- * 링크 https://school.programmers.co.kr/learn/courses/30/lessons/181941
+ * 링크 https://school.programmers.co.kr/learn/courses/30/lessons/12910
  */
 
 public class Ex04 {
 	
 	/**
 	 * 문제 설명
-	 * 1. 문자 배열 arr이 주어질 때
-	 * 2. 원소를 이어 붙인 문자열을 return
+	 * 1. 배열의 값 중 divisor로 나누어 떨어지는 값을
+	 * 2. 오름차순으로 정렬한 배열을 return
+	 * 3. 만약 하나도 없을 경우 배열에 -1을 담아 return
 	 */
 	
 	
-	// 풀이 1. String 사용 (메모리 문제로 Builder 사용 필요)
-	// 시간 1.10ms ~ 4.86ms
-	public String solution(String[] arr) {
+	// 풀이
+	// 시간 0.16ms ~ 1.46ms
+	public int[] solution(int[] arr, int divisor) {
 		
-		String sb = new String();
+		int[] numList = new int[arr.length];
+		numList[0] = -1;
+		int j = 0;
 		
 		for(int i = 0; i < arr.length; i++) {
-			sb += arr[i];
+			if(arr[i] % divisor == 0) {
+				numList[j] = arr[i];
+				j++;
+			}
 		}
 		
-		return sb;
+		if(j == 0) {
+			return Arrays.copyOf(numList, 1);
+		}
+		
+		
+		numList = Arrays.copyOf(numList, j);
+		Arrays.sort(numList);
+		
+		
+		return numList;
 	}
 	
-	// 풀이 2. StringBuilder 사용
-	// 시간 0.03ms ~ 0.05ms
-	public String solution1(String[] arr) {
-		
-		StringBuilder sb = new StringBuilder();
-		
-		for(int i = 0; i < arr.length; i++) {
-			sb.append(arr[i]);
-		}
-		
-		return sb.toString();
+	
+	
+	
+	public static void main(String[] agrs) {
+		Ex04 ex04 = new Ex04();
+		int[] arr = {2,3,4};
+//		int[] arr = {5, 9, 7, 10};
+		System.out.println(Arrays.toString(ex04.solution(arr, 5)));
 	}
 
-	
-	
-	public static void main(String[] args) {
-		Ex04 ex05 = new Ex04();
-		
-		String[] str = {"a","b","c"};
-		
-		System.out.println(ex05.solution1(str));
-	}
-	
 }

@@ -1,37 +1,24 @@
 package algorithm04;
 
-import java.util.Arrays;
+import java.util.Scanner;
 
 /**
- * 링크 https://school.programmers.co.kr/learn/courses/30/lessons/120809
+ * 링크 https://school.programmers.co.kr/learn/courses/30/lessons/181946
  */
 
 public class Ex04 {
 	
 	/**
 	 * 문제 설명
-	 * 1. 주어진 배열의 원소의 값을 2배로 계산해 return
+	 * 1. 문자열 a, b의 공백을 없애고 이어서 출력
 	 */
 	
-	// 풀이
-	// 시간 0.01ms ~ 0.04ms
-	public int[] solution(int[] numbers) {
-		 int[] answer = new int[numbers.length];
-		 
-		 for(int i = 0; i < numbers.length; i++) {
-			 answer[i] = numbers[i] * 2;
-		 }
-		 
-	        return answer;
-	}
-	
-	
-	
 	public static void main(String[] args) {
-		Ex04 ex04 = new Ex04();
-		int[] arr = {1, 2, 3, 4, 5};
+		Scanner sc = new Scanner(System.in);
+		String a = sc.next();
+		String b = sc.next();
 		
-		System.out.println(Arrays.toString(ex04.solution(arr)));
+		System.out.println(a + b);
 	}
 
 }

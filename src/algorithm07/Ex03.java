@@ -1,33 +1,42 @@
 package algorithm07;
 
 /**
- * 링크 https://school.programmers.co.kr/learn/courses/30/lessons/120899
+ * 링크 https://school.programmers.co.kr/learn/courses/30/lessons/12903
  */
 
 public class Ex03 {
 	
 	/**
 	 * 문제 설명
-	 * 1. 정수 배열의 가장 큰 수와 그 수의 index return
+	 * 1. 단어의 가운데 글자를 return
+	 * 2. 홀수일 경우 중앙을
+	 * 3. 짝수일 경우 가운데 2 글자를 return
 	 */
 	
 	// 풀이
-	// 시간 0.01ms
-	public int[] solution(int[] array) {
-
-		int max = array[0];
+	// 시간 0.02ms ~ 1.79ms
+	public String solution(String s) {
 		
-		int[] arr = {array[0], 0};
+		int n = s.length() / 2;
 		
-		for(int i = 1; i < array.length; i++) {
-			if(array[i] > max) {
-				max = array[i];
-				arr[0] = max;
-				arr[1] = i;
-			}
+		if(s.length() % 2 == 0) {
+			return String.valueOf(s.charAt(n -1)) + String.valueOf(s.charAt(n));
 		}
 		
-		return arr;
+//		return String.valueOf(s.charAt(n));
+		
+		return (s.length() % 2 == 0) ? String.valueOf(s.charAt(n -1)) + String.valueOf(s.charAt(n)) : String.valueOf(s.charAt(n));
+	}
+	
+	
+	
+	
+	
+	public static void main(String[] args) {
+		Ex03 ex03 = new Ex03();
+		
+		System.out.println(ex03.solution("abcde"));
+		System.out.println(ex03.solution("qwer"));
 	}
 
 }
