@@ -37,8 +37,6 @@ public class Ex04 {
 			min++;
 		}
 		
-		
-		
 		return answer;
 	}
 
