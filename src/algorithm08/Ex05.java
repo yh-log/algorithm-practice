@@ -12,7 +12,7 @@ public class Ex05 {
 	 */
 
 	
-	// 풀이 . replace 사용
+	// 풀이. replace 사용
 	// 시간 1.14ms ~ 1.65ms
 	public String solution(String phone_number) {
 		
@@ -24,6 +24,7 @@ public class Ex05 {
 	}
 	
 	
+	// 풀이 2. StringBuilder 사용
 	public String solution1(String phone_number) {
 		
 		StringBuilder sb = new StringBuilder();
