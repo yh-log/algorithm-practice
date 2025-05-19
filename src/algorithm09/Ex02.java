@@ -12,7 +12,7 @@ public class Ex02 {
 	 */
 	
 	// 풀이
-	// 시간 ms ~ ms
+	// 시간 0.02ms ~ 0.03ms
 	public int solution(int[] num_list) {
 		
 		int num = -1;
