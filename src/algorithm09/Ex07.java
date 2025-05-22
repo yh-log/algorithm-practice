@@ -12,7 +12,7 @@ public class Ex07 {
 	 */
 	
 	// 풀이
-	// 시간 ms ~ ms
+	// 시간 0.01ms ~ 0.02ms
 	public int solution(int[] arr, int idx) {
 		
 		for(int i = idx; i < arr.length; i++) {
