@@ -14,7 +14,7 @@ public class Ex05 {
 	
 	
 	// 풀이
-	// 시간 ms ~ ms
+	// 시간 1.06ms ~ 1.68ms
 	public String solution(String my_string, int k) {
 		
 		String str = "";
