@@ -21,7 +21,7 @@ public class Ex03 {
 	 */
 	
 	
-	// 풀이
+	// 풀이 1
 	// 시간 0.02ms ~ 0.04ms
 	public int solution(String my_string, String is_prefix) {
 		
