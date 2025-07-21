@@ -5,7 +5,7 @@ package algorithm11;
 public class Ex10 {
    
    /*
-    * 문제 설명 (정수 부분)
+    * 문제 설명 (정수 부분) 
     * 1. double 값을 정수 부분만 return
     */
    
