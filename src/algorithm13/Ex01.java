@@ -6,7 +6,7 @@ import java.util.List;
 
 // https://school.programmers.co.kr/learn/courses/30/lessons/181919
 
-public class Ex01 {
+public class Ex01 { 
    
    /*
     * 문제 설명 (콜라츠 수열 만들기)
