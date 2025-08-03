@@ -2,7 +2,7 @@ package algorithm13;
 
 // https://school.programmers.co.kr/learn/courses/30/lessons/181842
 
-public class Ex03 {
+public class Ex03 { 
    
    /*
     * 문제 설명
